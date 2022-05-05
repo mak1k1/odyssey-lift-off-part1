@@ -1,6 +1,5 @@
 const { RESTDataSource } = require("apollo-datasource-rest")
 
-
 class TrackAPI extends RESTDataSource {
   constructor() {
     super()
@@ -8,11 +7,11 @@ class TrackAPI extends RESTDataSource {
   }
 
   getTracksForHome() {
-      return this.get('tracks')
+    return this.get("tracks")
   }
 
   getAuthor(authorId) {
-    return this.get(`author/${authorId}`);
+    return this.get(`author/${authorId}`)
   }
 
   getTrack(trackId) {
@@ -20,7 +19,11 @@ class TrackAPI extends RESTDataSource {
   }
 
   getTrackModules(trackId) {
-    return this.get(`track/${trackId}/modules`);
+    return this.get(`track/${trackId}/modules`)
+  }
+
+  incrementTrackViews(trackId) {
+    return this.patch(`track/${trackId}/numberOfViews`)
   }
 }
 
